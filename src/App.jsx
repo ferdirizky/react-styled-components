@@ -1,33 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import styled from 'styled-components';
+
+const Title = styled.h1`
+color : blue;
+font-size : 50px;
+`;
+
+const Section = styled.section`
+color : red;
+background-color : papayawhip;
+margin-bottom : 10px;
+padding : 10px;
+`;
+
+const Button = styled.button`
+background-color : ${props => props.primary ? 'blue' : 'white'};
+color : ${props => props.primary ? 'white' : 'blue'};
+padding : 10px;
+border : 2px solid blue;
+margin-right : 5px;
+&:hover {
+background : red;}
+`;
+
+const GreenButton = styled(Button)`
+background : green;
+border : 2px solid green;
+`;
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Title>Ini contoh membuat Title</Title>
+    <Section>ini contoh membuat section</Section>
+    <Button>Submit</Button>
+    <Button primary>Primary</Button>
+    <GreenButton primary>Green Button</GreenButton>
     </>
   )
 }
